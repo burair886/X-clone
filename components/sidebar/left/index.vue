@@ -11,16 +11,16 @@
           </div>
         </nuxt-link>
       </div>
-      <tab>
-        <template v-slot:icon>
-          <LazyIcon
-            class="w-full h-full"
-            name="healthicons:home-alt"
-            color="black"
-          />
-        </template>
-        <template v-slot:name> Home </template>
-      </tab>
+      <div v-for="(item, index) in leftSide" :key="index">
+        <tab active>
+          <template v-slot:icon>
+            <LazyIcon class="w-full h-full" :name="item.icon" />
+          </template>
+          <template v-slot:name>
+            <h1>{{ item.name }}</h1>
+          </template>
+        </tab>
+      </div>
     </div>
   </div>
 </template>
@@ -28,4 +28,35 @@
 import twitterX from "~/public/img/twitterX.vue";
 
 const { defaultTransition } = useTailwind();
+
+const leftSide = ref([
+  {
+    name: "Home",
+    icon: "healthicons:home-alt",
+  },
+  {
+    name: "Explore",
+    icon: "mingcute:hashtag-fill",
+  },
+  {
+    name: "Messages",
+    icon: "solar:inbox-line-broken",
+  },
+  {
+    name: "Bookmarks",
+    icon: "ic:round-bookmarks",
+  },
+  {
+    name: "Lists",
+    icon: "material-symbols:lists-rounded",
+  },
+  {
+    name: "Profile",
+    icon: "material-symbols:person-pin",
+  },
+  {
+    name: "More",
+    icon: "gg:more",
+  },
+]);
 </script>

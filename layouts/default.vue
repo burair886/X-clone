@@ -4,7 +4,7 @@
       <div class="min-h-full">
         <div class="flex mx-auto sm:px-6 lg:px-8 lg:gap-5 lg:max-w-7xl">
           <!-- Left Sidebar -->
-          <left />
+          <left class="hidden md:block" />
           <!-- Main page -->
           <section>
             <!-- <slot /> -->
@@ -17,5 +17,5 @@
   </div>
 </template>
 <script setup>
-const darkMode = ref(false);
+const darkMode = ref(true);
 </script>
