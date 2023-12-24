@@ -9,10 +9,10 @@
           <left class="hidden md:block" />
           <!-- Main page -->
           <section>
-            <slot />
+            <router-view />
           </section>
           <!-- Right Sidebar -->
-          <div class="bg-blue-500 w-3/12">
+          <div class="w-3/12 hidden md:block">
             <div class="sticky top-0"><right /></div>
           </div>
         </div>
@@ -21,5 +21,5 @@
   </div>
 </template>
 <script setup>
-const darkMode = ref(true);
+const darkMode = ref(false);
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-between p-2"
+    class="flex justify-between items-center p-2"
     v-for="(item, index) in follow"
     :key="index"
   >
