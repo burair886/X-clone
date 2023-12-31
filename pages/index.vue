@@ -1,8 +1,10 @@
 <template>
   <div>
-    <div class="text-red-800 dark:text-dim-500">
-      <section-main title="Main" :loading="false">  </section-main>
+    <div class="dark:text-dim-500">
+      <Main title="Main" :loading="loading"> </Main>
     </div>
   </div>
 </template>
-<script setup></script>
+<script setup>
+const loading = ref(false);
+</script>
