@@ -17,5 +17,9 @@
     "prisma": "^5.7.1",
     "vue": "^3.3.12",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "bcrypt": "^5.1.1"
   }
 }

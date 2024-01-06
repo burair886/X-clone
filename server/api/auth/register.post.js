@@ -1,9 +1,12 @@
+import { sendError } from "h3";
+import { createUser } from "../../db/user.js";
+
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  const { userName, password, email, repeatPassword } = body;
+  const { username, password, email, repeatPassword } = body;
 
-  if (!userName || !password || !email || !repeatPassword) {
+  if (!username || !password || !email || !repeatPassword) {
     return sendError(
       event,
       createError({
@@ -11,10 +14,24 @@ export default defineEventHandler(async (event) => {
         statusMessage: "Invalid Params",
       })
     );
-  } else {
-    console.log("params", userName, password, email, repeatPassword);
-    console.log("event", event);
+  }
+  if (password != repeatPassword) {
+    return sendError(
+      event,
+      createError({
+        statusCode: 400,
+        statusMessage: "Passwords not match",
+      })
+    );
   }
 
-  return { body };
+  const data = {
+    username,
+    password,
+    email,
+    displayPicture: "https://picsum.photos/200/300",
+  };
+  const user = await createUser(data);
+
+  return { body: user };
 });
